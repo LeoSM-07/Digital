@@ -1,9 +1,9 @@
 import { memo, FC, CSSProperties } from 'react';
 import { Handle, Position, NodeProps } from 'reactflow';
 
-const sourceHandleStyleA: CSSProperties = { left: 50 };
+const sourceHandleStyleA: CSSProperties = { left: 25 };
 const sourceHandleStyleB: CSSProperties = {
-  right: 50,
+  right: 25,
   left: 'auto',
 };
 
@@ -23,9 +23,7 @@ const LogicANDNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
         style={sourceHandleStyleB}
       />
 
-      <div>
-        <div>{data.label}</div>
-      </div>
+      <div>{data.label}</div>
 
       <Handle type="source" position={Position.Bottom} />
     </>

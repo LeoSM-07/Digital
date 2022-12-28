@@ -50,12 +50,13 @@ const nodeTypes = {
 
 const defaultEdgeOptions = {
   animated: false,
-  type: 'straight',
+  type: 'default',
 };
 
 function Flow() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+
   const onConnect = useCallback(
     (params: Connection | Edge) => setEdges((eds) => addEdge(params, eds)),
     [setEdges]
@@ -71,11 +72,11 @@ function Flow() {
         onConnect={onConnect}
         nodeTypes={nodeTypes}
         defaultEdgeOptions={defaultEdgeOptions}
-        connectionLineType={ConnectionLineType.Straight}
+        connectionLineType={ConnectionLineType.Bezier}
         fitView
-        snapToGrid={true}
+        snapToGrid={false}
       >
-        <Background />
+        {/* <Background />  // Add Grid Dots*/}
       </ReactFlow>
     </div>
   );
